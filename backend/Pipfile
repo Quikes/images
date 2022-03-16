@@ -13,6 +13,12 @@ pytest-django = "==4.5.2"
 django-cors-headers = "==3.11"
 pillow = "*"
 python-magic = "==0.4.25"
+drf-yasg = "==1.20.0"
+pytest-cov = "*"
+django-redis = "*"
+pytest-factoryboy = "*"
+factory-boy = "*"
+django-extensions = "*"
 
 [dev-packages]
 

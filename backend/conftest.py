@@ -27,15 +27,17 @@ def remove_test_data():
         pass
 
 
-
 @pytest.fixture(scope='function')
 @override_settings(MEDIA_ROOT=(os.path.join(os.environ.get('TEST_DIR'), 'media')))
 def test_image(user):
     image = Image.objects.create(
         author=user,
-        url=SimpleUploadedFile('test_file.jpg', content=open(os.path.join('tests', 'test_image.jpg'), 'rb').read())
+        url=SimpleUploadedFile('test_image.jpg', content=open(os.path.join('test', 'test_image.jpg'), 'rb').read())
     )
 
     return image
 
-#
+@pytest.fixture
+def api_rf():
+    from rest_framework.test import APIRequestFactory
+    return APIRequestFactory()
